@@ -34,6 +34,7 @@ The Team Task Manager is a full-stack MERN web application designed to help team
 
 ### 1. Clone the Repository
 git clone https://github.com/Jash-1th/team_task_manager 
+
 cd team_task_manager
 
 ### 2. Backend Setup
