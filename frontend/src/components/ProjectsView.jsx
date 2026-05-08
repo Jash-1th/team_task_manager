@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import { projectAPI, authAPI, taskAPI } from '../services/api'
+import { projectAPI, userAPI, taskAPI } from '../services/api'
 import { Plus, Folder, Users, Trash2, Edit2, Loader2, X } from 'lucide-react'
 
 const ProjectsView = () => {
@@ -25,7 +25,7 @@ const ProjectsView = () => {
 
   const loadUsers = async () => {
     try {
-      const response = await authAPI.getAllUsers()
+      const response = await userAPI.getAll()
       setAllUsers(response.data.users || [])
     } catch (error) {
       console.error('Error loading users:', error)

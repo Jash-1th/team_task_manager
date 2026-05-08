@@ -1,13 +1,14 @@
-import { LayoutGrid, CheckSquare, LogOut, Menu, X } from 'lucide-react'
+import { LayoutGrid, CheckSquare, Users, LogOut, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
-const Sidebar = ({ activeTab, setActiveTab, onLogout }) => {
+const Sidebar = ({ activeTab, setActiveTab, onLogout, isAdmin }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutGrid },
-    { id: 'projects', label: 'Projects', icon: LayoutGrid },
-    { id: 'tasks', label: 'Tasks', icon: CheckSquare },
+    ...(isAdmin ? [{ id: 'projects', label: 'Projects', icon: LayoutGrid }] : []),
+    ...(isAdmin ? [{ id: 'team', label: 'Team Overview', icon: Users }] : []),
+    ...(!isAdmin ? [{ id: 'tasks', label: 'My Assigned Tasks', icon: CheckSquare }] : []),
   ]
 
   const handleNavClick = (id) => {
@@ -44,7 +45,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout }) => {
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     activeTab === item.id
-                      ? 'bg-blue-600 text-white'
+                      ? isAdmin ? 'bg-blue-600 text-white' : 'bg-emerald-600 text-white'
                       : 'text-gray-400 hover:bg-dark-700 hover:text-white'
                   }`}
                 >

@@ -34,8 +34,11 @@ api.interceptors.response.use(
 export const authAPI = {
   signup: (data) => api.post('/auth/signup', data),
   login: (data) => api.post('/auth/login', data),
-  getMe: () => api.get('/auth/me'),
-  getAllUsers: () => api.get('/auth/users')
+  getMe: () => api.get('/auth/me')
+}
+
+export const userAPI = {
+  getAll: () => api.get('/auth/users')
 }
 
 export const projectAPI = {

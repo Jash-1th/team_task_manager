@@ -87,7 +87,7 @@ const getMe = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find({ role: 'Member' }).select('-password');
+    const users = await User.find({ role: { $regex: /^member$/i } }).select('-password');
     res.json({
       success: true,
       users
