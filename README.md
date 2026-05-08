@@ -33,7 +33,7 @@ The Team Task Manager is a full-stack MERN web application designed to help team
 - MongoDB Atlas account (or local MongoDB server)
 
 ### 1. Clone the Repository
-git clone [[Insert your GitHub repo link here]](https://github.com/Jash-1th/team_task_manager)
+git clone https://github.com/Jash-1th/team_task_manager 
 cd team_task_manager
 
 ### 2. Backend Setup
